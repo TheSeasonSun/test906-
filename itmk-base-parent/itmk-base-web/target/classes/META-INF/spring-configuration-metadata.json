@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "jwt",
+      "type": "com.itmk.config.jwt.JwtUtils",
+      "sourceType": "com.itmk.config.jwt.JwtUtils"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jwt.expiration",
+      "type": "java.lang.Long",
+      "sourceType": "com.itmk.config.jwt.JwtUtils"
+    },
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.itmk.config.jwt.JwtUtils"
+    }
+  ],
+  "hints": []
+}

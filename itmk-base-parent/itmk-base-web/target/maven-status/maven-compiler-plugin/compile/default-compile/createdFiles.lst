@@ -1,0 +1,13 @@
+com\itmk\web\user\entity\User.class
+com\itmk\config\security\detailservice\CustomerUserDetailsService.class
+com\itmk\PartApplication.class
+com\itmk\web\user\service\Impl\UserServiceImpl.class
+com\itmk\config\mybatis\MyBatisPlusConfig.class
+com\itmk\config\security\handler\LoginFailureHandler.class
+com\itmk\config\security\SpringSecurityConfig.class
+com\itmk\web\user\mapper\UserMapper.class
+com\itmk\config\security\handler\LoginSuccessHandler.class
+com\itmk\config\security\handler\CustomAccessDeineHandler.class
+com\itmk\config\security\handler\CustomizeAuthenticationEntryPoint.class
+com\itmk\web\user\controller\UserController.class
+com\itmk\web\user\service\UserService.class
