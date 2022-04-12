@@ -3,7 +3,6 @@ package com.itmk.config.security.handler;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.itmk.config.jwt.JwtUtils;
-import com.itmk.status.StatusCode;
 import com.itmk.web.user.entity.User;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
                 .getBody().getExpiration().getTime();
         LoginResult vo = new LoginResult();
         vo.setId(user.getId());
-        vo.setCode(StatusCode.SUCCESS_CODE);
+        vo.setCode(200);
         vo.setToken(token);
         vo.setExpireTime(expireTime);
         //返回JSON

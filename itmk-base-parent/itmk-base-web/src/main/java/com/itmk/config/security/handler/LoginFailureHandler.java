@@ -2,6 +2,7 @@ package com.itmk.config.security.handler;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.itmk.config.security.exception.CustomerAuthenionException;
 import com.itmk.utils.ResultVo;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.AuthenticationException;
@@ -37,6 +38,9 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
             str = "账户被锁，登录失败!";
         }else if(e instanceof InternalAuthenticationServiceException){
             str = "账户不存在，登录失败!";
+        }else if(e instanceof CustomerAuthenionException){
+            code = 600;
+            str = e.getMessage();
         }else{
             str = "登录失败!";
         }

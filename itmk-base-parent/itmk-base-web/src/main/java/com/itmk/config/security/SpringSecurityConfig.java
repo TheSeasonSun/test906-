@@ -1,6 +1,7 @@
 package com.itmk.config.security;
 
 import com.itmk.config.security.detailservice.CustomerUserDetailsService;
+import com.itmk.config.security.filter.CheckTokenFilter;
 import com.itmk.config.security.handler.CustomAccessDeineHandler;
 import com.itmk.config.security.handler.CustomizeAuthenticationEntryPoint;
 import com.itmk.config.security.handler.LoginFailureHandler;
@@ -15,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 //spring security配置类
 @Configuration
@@ -31,6 +33,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomAccessDeineHandler customAccessDeineHandler;
     @Autowired
     private CustomizeAuthenticationEntryPoint customizeAuthenticationEntryPoint;
+    @Autowired
+    private CheckTokenFilter checkTokenFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -39,6 +43,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.addFilterBefore(checkTokenFilter, UsernamePasswordAuthenticationFilter.class);
         http.formLogin()
                 .loginProcessingUrl("/api/user/login")
                 .successHandler(loginSuccessHandler).failureHandler(loginFailureHandler)
